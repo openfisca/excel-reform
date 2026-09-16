@@ -52,7 +52,7 @@ jobs:
 
       - name: Add tag on GitHub
         run: |
-          git tag `uv version --short`
+          git tag `uv run --isolated --no-project --with dist/*.whl uv version --short`
           git push --tags
 
       # - name: Publish
