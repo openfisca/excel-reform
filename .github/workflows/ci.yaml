@@ -1,3 +1,4 @@
+---
 name: Continuous integration for OpenFisca Excel Reform
 on:
   pull_request:

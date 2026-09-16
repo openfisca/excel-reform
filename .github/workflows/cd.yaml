@@ -1,3 +1,4 @@
+---
 name: Continuous deployment for OpenFisca Excel Reform
 on:
   push:
