@@ -1,12 +1,12 @@
-from typing import IO
-
 import io
 from datetime import date, datetime, time
+from typing import IO
 
 import openpyxl
 import pytest
-
 from openfisca_core.parameters.parameter_scale import ParameterScale
+from openfisca_country_template import CountryTaxBenefitSystem
+
 from openfisca_excel_reform import (
     ExcelReform,
     ExcelReformBuilder,
@@ -14,7 +14,6 @@ from openfisca_excel_reform import (
     get_parameter_node,
 )
 
-from openfisca_country_template import CountryTaxBenefitSystem
 
 @pytest.fixture(scope="module")
 def tax_benefit_system():

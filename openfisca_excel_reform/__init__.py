@@ -1,18 +1,16 @@
 from __future__ import annotations
 
-from typing import IO, Iterator
-
-from openfisca_core.types import TaxBenefitSystem
-
+from collections.abc import Iterator
 from datetime import date
 from pathlib import Path
+from typing import IO
 
 import openpyxl
-
 from openfisca_core.parameters.parameter_node import ParameterNode
 from openfisca_core.parameters.parameter_scale import ParameterScale
 from openfisca_core.parameters.parameter_scale_bracket import ParameterScaleBracket
 from openfisca_core.reforms import Reform
+from openfisca_core.types import TaxBenefitSystem
 
 
 def get_parameter_node(
@@ -83,7 +81,7 @@ class ExcelReformBuilder:
             if row[date_col[0]]
         ]
 
-    def build_reform(self, suffix: str) -> "ExcelReform":
+    def build_reform(self, suffix: str) -> ExcelReform:
         return ExcelReform(
             suffix,
             self.baseline,
@@ -164,7 +162,7 @@ class ExcelReform(Reform):
         name: str,
         baseline: TaxBenefitSystem,
         root_name: str,
-        reformed_parameters: list[tuple[str, str, date | None]] | None = None,
+        reformed_parameters: list[tuple[str, float, date | None]] | None = None,
     ) -> None:
         """Initialize the ExcelReform instance.
 
@@ -184,7 +182,7 @@ class ExcelReform(Reform):
             # Dict to track scale-based multiline parameters
             params_with_thresholds: dict[
                 str, tuple[ParameterScale, list[tuple[float, ParameterScaleBracket]]]
-            ] = dict()
+            ] = {}
 
             for name, value, date_ in self.reformed_parameters:
                 leaf, threshold = get_parameter_node(root, name)
@@ -206,7 +204,7 @@ class ExcelReform(Reform):
                         }
                     )
 
-                    params_with_thresholds.setdefault(stripped_name, (leaf, list()))[
+                    params_with_thresholds.setdefault(stripped_name, (leaf, []))[
                         1
                     ].append(
                         (

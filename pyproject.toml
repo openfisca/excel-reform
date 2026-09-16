@@ -4,17 +4,23 @@ requires = [ "setuptools>=61" ]
 
 [project]
 name = "openfisca-excel-reform"
-version = "0.0.1"
-description = "Add your description here"
+version = "0.0.2"
+description = "Excel reforms provide a way to modify a subtree of parameters with an Excel file."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "openpyxl>=3.1.5",
     "openfisca-core[web-api]>=43",
 ]
+license="AGPL-3.0-or-later"
+
+[project.urls]
+Homepage = "https://github.com/openfisca/openfisca-excel-reform"
 
 [dependency-groups]
 dev = [
     "openfisca-country-template>=8.0.3",
+    "pre-commit>=4.6.2",
     "pytest>=8,<9.0",
+    "ruff>=0.16.7",
 ]
