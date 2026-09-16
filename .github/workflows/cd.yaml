@@ -24,9 +24,6 @@ jobs:
       - name: Build
         run: uv build
 
-      - name: Track version
-        run: uv version --short > dist/VERSION
-
       - name: Upload distributions as artifacts
         uses: actions/upload-artifact@v7.0.1
         with:
@@ -41,6 +38,8 @@ jobs:
     permissions:
       id-token: write
     steps:
+      - uses: actions/checkout@v7.0.1
+
       - name: Install uv
         uses: astral-sh/setup-uv@v9.0.0
         with:
@@ -54,7 +53,8 @@ jobs:
 
       - name: Add tag on GitHub
         run: |
-          git tag `cat dist/VERSION`
+          uv version --short
+          git tag `uv version --short`
           git push --tags
 
       # - name: Publish
