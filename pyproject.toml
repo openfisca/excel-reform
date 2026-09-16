@@ -13,6 +13,7 @@ dependencies = [
     "openfisca-core[web-api]>=43",
 ]
 license="AGPL-3.0-or-later"
+license-files=["LICENSE"]
 
 [project.urls]
 Homepage = "https://github.com/openfisca/excel-reform"
