@@ -491,19 +491,19 @@ web-api = [
 
 [[package]]
 name = "openfisca-country-template"
-version = "8.0.3"
+version = "8.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "openfisca-core", extra = ["web-api"] },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/38/7d/5c899c15855a31b75c147c2691df4deedad646d9f69eed3d48afecc89a6a/openfisca_country_template-8.0.3.tar.gz", hash = "sha256:889f17e2ed2daab8efccfa664b4672d9362dd362c764eebef6bbdbb16409d3c6", size = 35679, upload-time = "2026-02-24T09:17:46.831Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e1/3d/048ab4f5db47b8e219876ef7a834f9a59fa3ee36ba42984783ac20f1838e/openfisca_country_template-8.1.0.tar.gz", hash = "sha256:6b465dad0dede21769bda2f8c5d47e15f73efb8a8c2595604d3a78c55ff48f67", size = 138451, upload-time = "2026-09-17T17:27:21.405Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f6/c1/ddc036b7a24b894da9ac0d5841bc158655085a6b716a4847df4f9a3e302d/openfisca_country_template-8.0.3-py3-none-any.whl", hash = "sha256:091221cfd57c27471a63e89e47161f54085b4b19a25aabec2c6420f52a15acea", size = 46099, upload-time = "2026-02-24T09:17:45.712Z" },
+    { url = "https://files.pythonhosted.org/packages/c8/be/f1ab7476fd6ae4fc217ea3207958843f1b79adaf5075ada6cc79e1022aae/openfisca_country_template-8.1.0-py3-none-any.whl", hash = "sha256:0ccfaa4632e21ca567767314635be4ed2b7b24171b1f86bfa92cb84ac2b17a7c", size = 46469, upload-time = "2026-09-17T17:27:20.366Z" },
 ]
 
 [[package]]
 name = "openfisca-excel-reform"
-version = "0.0.4"
+version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "openfisca-core", extra = ["web-api"] },
@@ -526,7 +526,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "openfisca-country-template", specifier = ">=8.0.3" },
+    { name = "openfisca-country-template", specifier = ">=8.1.0" },
     { name = "pre-commit", specifier = ">=4.6.2" },
     { name = "pytest", specifier = ">=8,<9.0" },
     { name = "ruff", specifier = ">=0.16.7" },
