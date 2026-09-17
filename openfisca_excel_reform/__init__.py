@@ -108,9 +108,7 @@ class ExcelReformTemplateGenerator:
             name = parameter.name.removeprefix(self.root_name + ".")
             if type(parameter) is ParameterScale:
                 threshold_values = (
-                    value.amounts
-                    if parameter.metadata.get("type") == "single_amount"
-                    else value.rates
+                    value.amounts if hasattr(value, "amounts") else value.rates
                 )
                 for threshold, val in zip(value.thresholds, threshold_values):
                     values.append((f"{name}.{threshold}", val))
@@ -188,11 +186,7 @@ class ExcelReform(Reform):
                 leaf, threshold = get_parameter_node(root, name)
                 if type(leaf) is ParameterScale:
                     threshold_value = float(".".join(threshold))
-                    prop_name = (
-                        "amount"
-                        if leaf.metadata.get("type") == "single_amount"
-                        else "rate"
-                    )
+                    prop_name = "amount" if hasattr(leaf, "amounts") else "rate"
                     stripped_name = ".".join(name.split(".")[:-1])
 
                     bracket = ParameterScaleBracket(
