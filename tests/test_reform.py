@@ -253,6 +253,11 @@ class TestExcelReformTemplateGenerator:
         assert parameters == [
             ("basic_income", 600.0),
             ("housing_allowance", None),
+            ("meal_price.0", 0),
+            ("meal_price.1000", 4),
+            ("meal_price.2000", 8),
+            ("meal_price.250", 1),
+            ("meal_price.500", 2),
             ("parenting_allowance.amount", 600.0),
             ("parenting_allowance.income_threshold", 500),
         ]

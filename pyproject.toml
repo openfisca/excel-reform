@@ -20,7 +20,7 @@ Homepage = "https://github.com/openfisca/excel-reform"
 
 [dependency-groups]
 dev = [
-    "openfisca-country-template>=8.0.3",
+    "openfisca-country-template>=8.1.0",
     "pre-commit>=4.6.2",
     "pytest>=8,<9.0",
     "ruff>=0.16.7",
